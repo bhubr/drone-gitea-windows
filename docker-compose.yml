@@ -123,7 +123,18 @@ services:
       - cicd_net
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-  
+
+  registry:
+    image: registry:2
+    container_name: registry
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    networks:
+      - cicd_net
+    volumes:
+      - ./registry-data:/data
+
 networks:
   cicd_net:
     name: cicd_net
