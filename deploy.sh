@@ -9,4 +9,4 @@ export DRONE_RPC_SECRET="a64b126d39d256a984f5601ce9fa3ed0"
 export DRONE_USER_CREATE="username:rbekker87,machine:false,admin:true,token:${DRONE_RPC_SECRET}"
 export DRONE_GITEA_CLIENT_ID="018dc646-3a45-4649-a7d2-428e71d2467a"
 export DRONE_GITEA_CLIENT_SECRET="gto_nv24oztwdtm4umiazfvj5woxhd6et3ec7o2mppqjbe6qzvvki7ba"
-docker-compose up -d --force-recreate
+docker-compose up -d

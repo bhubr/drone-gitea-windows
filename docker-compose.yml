@@ -107,6 +107,23 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
+  drone-ssh-agent:
+    container_name: runner_ssh
+    image: drone/drone-runner-ssh
+    restart: unless-stopped
+    depends_on:
+      - drone
+    environment:
+      - DRONE_RPC_PROTO=http
+      - DRONE_RPC_HOST=drone
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+    ports:
+      - "3003:3000"
+    networks:
+      - cicd_net
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  
 networks:
   cicd_net:
     name: cicd_net
